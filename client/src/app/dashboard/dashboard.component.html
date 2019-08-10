@@ -1,0 +1,12 @@
+<h2>Dashboard</h2>
+<button (click)="create()">Create New</button>
+<div *ngFor="let article of articles">
+    <div>
+        <h3>{{article.title}}</h3>
+        <p>Owner {{article.owner}}</p>
+        <h4>Content</h4>
+        <p>{{article.body}}</p>
+        <button *ngIf="canEdit(article)" (click)="edit(article._id)">Edit</button>
+        <button (click)="remove(article._id)">Delete</button>
+    </div>
+</div>

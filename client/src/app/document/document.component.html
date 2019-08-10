@@ -1,0 +1,20 @@
+<section *ngIf="loaded">
+    <section *ngIf="!error">
+        <form [formGroup]="editForm">
+            <label for="TITLE">TITLE:</label>
+            <input type="text" formControlName="title" id="title">
+            <label for="body">Content:</label>
+            <textarea type="text" formControlName="body" id="body"></textarea>
+            <p *ngIf="!create">Created By {{data.owner}}</p>
+            <p *ngIf="create">Created By {{auth.username}}</p>
+            <button *ngIf="create"(click)="save()">save</button>
+            <button *ngIf="!create"(click)="update()">UPDATE</button>
+        </form>
+    </section>
+</section>
+<section *ngIf="!loaded">
+    <h1>Loading</h1>
+</section>
+<section *ngIf="error">
+    <h1>Error</h1>
+</section>
